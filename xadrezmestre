@@ -1,6 +1,5 @@
 #include <stdio.h> 
 
-/**
  * @brief Simula o movimento da Torre recursivamente.
  * A Torre se move para a direita a cada chamada recursiva.
  * @param casas Restantes para mover.
