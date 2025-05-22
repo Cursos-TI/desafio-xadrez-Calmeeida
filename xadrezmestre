@@ -1,0 +1,87 @@
+#include <stdio.h> 
+
+/**
+ * @brief Simula o movimento da Torre recursivamente.
+ * A Torre se move para a direita a cada chamada recursiva.
+ * @param casas Restantes para mover.
+ */
+void moverTorreRecursivo(int casas) {
+    if (casas <= 0) {
+        return;
+    }
+    printf("Direita\n"); 
+    moverTorreRecursivo(casas - 1); 
+}
+
+/**
+ * @brief Simula o movimento da Rainha recursivamente.
+ * A Rainha se move para a esquerda a cada chamada recursiva.
+ * @param casas Restantes para mover.
+ */
+void moverRainhaRecursivo(int casas) {
+    if (casas <= 0) {
+        return;
+    }
+    printf("Esquerda\n"); 
+    moverRainhaRecursivo(casas - 1); 
+}
+
+/**
+ * @brief Simula o movimento do Bispo com loops aninhados recursivamente.
+ * O loop mais externo (vertical) é recursivo, e o interno (horizontal) é um for.
+ * @param casasVerticais Restantes para mover verticalmente.
+ * @param casasHorizontais Total de casas para mover horizontalmente por passo vertical.
+ */
+void moverBispoRecursivoAninhado(int casasVerticais, int casasHorizontais) {
+    if (casasVerticais <= 0) {
+        return;
+    }
+
+    for (int i = 0; i < casasHorizontais; i++) {
+        printf("Cima, Direita\n");
+    }
+
+    moverBispoRecursivoAninhado(casasVerticais - 1, casasHorizontais);
+}
+
+
+int main() {
+    // --- Simulação do Movimento da Torre (Recursivo) ---
+    printf("--- Movimento da Torre (Recursivo) ---\n");
+    int casasTorre = 5; 
+    moverTorreRecursivo(casasTorre); 
+    printf("\n"); 
+
+    // --- Simulação do Movimento do Bispo (Recursivo com Loops Aninhados) ---
+    printf("--- Movimento do Bispo (Recursivo com Loops Aninhados) ---\n");
+    int casasBispoVerticais = 5;
+    int casasBispoHorizontaisPorPasso = 1;
+    moverBispoRecursivoAninhado(casasBispoVerticais, casasBispoHorizontaisPorPasso);
+    printf("\n"); 
+
+    // --- Simulação do Movimento da Rainha (Recursivo) ---
+    printf("--- Movimento da Rainha (Recursivo) ---\n");
+    int casasRainha = 8; 
+    moverRainhaRecursivo(casasRainha); 
+    printf("\n"); 
+
+    printf("--- Movimento do Cavalo (Loops Aninhados Complexos) ---\n");
+
+    int passosVerticaisCavalo = 2; 
+    int passosHorizontaisCavalo = 1; 
+
+    for (int i = 0; i < passosVerticaisCavalo + passosHorizontaisCavalo; i++) {
+        if (i < passosVerticaisCavalo) {
+            printf("Cima\n");
+            continue;
+        }
+
+        if (i >= passosVerticaisCavalo) {
+            printf("Direita\n");
+            break;
+        }
+    }
+    printf("\n"); 
+
+    return 0; 
+}
